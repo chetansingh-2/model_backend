@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from groq import Groq
 import os
 
-os.environ["GROQ_API_KEY"] = os.getenv('KEY')
+os.environ["GROQ_API_KEY"] = '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'
 
 client = Groq()
 
@@ -12,7 +12,7 @@ def generate_content(prompt):
     response = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
         model="llama-3.1-8b-instant",
-        temperature=0.1
+        temperature=0.001
     )
     return response
 
