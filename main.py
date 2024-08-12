@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify
 from groq import Groq
 import os
 
-os.environ["GROQ_API_KEY"] = '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'
+os.environ["GROQ_API_KEY"] = os.getenv("API_KEY")
 
 client = Groq()
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all origins
 
 def generate_content(prompt):
     response = client.chat.completions.create(
