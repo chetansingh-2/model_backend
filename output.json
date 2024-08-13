@@ -1,0 +1,70 @@
+{
+    "division_scores": {
+        "Colombo Central": {
+            "pestel_scores": {
+                "Political": 85,
+                "Economic": 85,
+                "Social": 85,
+                "Technological": 12,
+                "Environmental": 12,
+                "Legal": 12
+            },
+            "demographic_alignment_score": 64,
+            "community_engagement_score": 85,
+            "support_index": 54.625
+        },
+        "Borella": {
+            "pestel_scores": {
+                "Political": 85,
+                "Economic": 85,
+                "Social": 85,
+                "Technological": 12,
+                "Environmental": 12,
+                "Legal": 12
+            },
+            "demographic_alignment_score": 64,
+            "community_engagement_score": 85,
+            "support_index": 54.625
+        },
+        "Colombo East": {
+            "pestel_scores": {
+                "Political": 85,
+                "Economic": 85,
+                "Social": 85,
+                "Technological": 12,
+                "Environmental": 12,
+                "Legal": 12
+            },
+            "demographic_alignment_score": 64,
+            "community_engagement_score": 85,
+            "support_index": 54.625
+        },
+        "Colombo West": {
+            "pestel_scores": {
+                "Political": 85,
+                "Economic": 85,
+                "Social": 85,
+                "Technological": 12,
+                "Environmental": 12,
+                "Legal": 12
+            },
+            "demographic_alignment_score": 64,
+            "community_engagement_score": 85,
+            "support_index": 54.625
+        },
+        "Dehiwala": {
+            "pestel_scores": {
+                "Political": 85,
+                "Economic": 85,
+                "Social": 85,
+                "Technological": 12,
+                "Environmental": 12,
+                "Legal": 12
+            },
+            "demographic_alignment_score": 64,
+            "community_engagement_score": 85,
+            "support_index": 54.625
+        }
+    },
+    "final_si_score": 54.625
+}
