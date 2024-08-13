@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from flask_caching import Cache
+# from flask_caching import Cache
 from groq import Groq
 import os
 import json
@@ -13,7 +13,7 @@ CORS(app)
 
 # Configure caching
 # app.config['CACHE_TYPE'] = 'simple'
-cache = Cache(app)
+# cache = Cache(app)
 
 
 def save_json(data, filename):
