@@ -155,7 +155,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 import re
 
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = "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"
 client = Groq()
 app = Flask(__name__)
 CORS(app)
