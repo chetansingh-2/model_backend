@@ -171,7 +171,7 @@ def generate_content(prompt):
     response = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
         model="llama-3.1-8b-instant",
-        temperature=0.001
+        temperature=0.1
     )
     return response
 
