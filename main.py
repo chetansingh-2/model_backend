@@ -272,9 +272,150 @@ def calculate_scores_for_division(candidate_data, division):
     }
 
 
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
+    # print(data)
+    candidate_data = data['candidate_data']
+
+    divisions = [
+        "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
+        "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
+        "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+    ]
+    results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
+    division_scores = {result["division"]: {
+        "pestel_scores": result["pestel_scores"],
+        "demographic_alignment_score": result["demographic_alignment_score"],
+        "community_engagement_score": result["community_engagement_score"],
+        "support_index": result["support_index"]
+    } for result in results}
+    final_si_score = sum([division_scores[division]["support_index"] for division in divisions]) / len(divisions)
+    # save_json({
+    #     "division_scores": division_scores,
+    #     "final_si_score": final_si_score
+    # }, 'output.json')
+
+    return jsonify({
+        "division_scores": division_scores,
+        "final_si_score": final_si_score
+    })
+
+@app.route('/anura', methods=['GET'])
+def predict1():
+    # data = request.json
+    # print(data)
+    data= {
+        "candidate_data": {
+            "Full Name": "Anura Kumara Dissanayake",
+            "DOB": "November 24, 1968",
+            "Gender": "Male",
+            "Nationality": "Sri Lankan",
+            "Languages Preferred": "Sinhala, English",
+            "Phone Number": "94 71 234 567",
+            "Email Address": "anura@example.com",
+            "Permanent Address": "456 Kandy Road, Colombo, Sri Lanka",
+            "Religion": "Buddhism",
+            "Caste/Community": "Not Publicly Declared",
+            "Ethnicity": "Sinhalese",
+            "Education Level": "Bachelor’s Degree",
+            "Previous Occupations": "Activist, Politician",
+            "Political Base": "Janatha Vimukthi Peramuna (JVP)",
+            "Highest Degree Obtained": "Bachelor’s Degree",
+            "Field of Study": "Agriculture",
+            "Educational Institutions Attended": "Nalanda College, Colombo; University of Peradeniya",
+            "Certifications/Other Qualifications": "Diploma in Political Science",
+            "Current Occupation": "Leader of the Janatha Vimukthi Peramuna (JVP)",
+            "Years of Experience in Leadership": "Member of Parliament, Minister of Agriculture",
+            "Political Party Affiliation": "Over 25 years",
+            "Previous Political Positions Held": "Janatha Vimukthi Peramuna (JVP)",
+            "Major Political Achievements": "Member of Parliament, Minister of Agriculture",
+            "Political Ideology/Core Belief": "Advocacy for workers' rights, anti-corruption campaigns, promotion of socialism",
+            "Political Movements Involvement": "Socialism, Left-wing politics, Anti-corruption",
+            "Key Areas of Focus": "Labour rights movements, anti-corruption initiatives, environmental activism",
+            "Primary Vision for the Country/Region": "Social justice, education, healthcare, anti-corruption",
+            "Short-term Goals": "A just and equitable society in Sri Lanka",
+            "Long-term Goals": "Tackling corruption, improving education and healthcare",
+            "Involvement in Social/Community Projects": "Establishing socialism, reducing income inequality",
+            "Awards and Recognitions": "Community development, educational initiatives, environmental conservation projects",
+            "Twitter": "Recognized for contributions to social justice and anti-corruption efforts",
+            "Facebook": "@AnuraD",
+            "Instagram": "fb.com/AnuraD",
+            "Other Social Media Handles": "@AnuraD"
+        }
+    }
+
+    candidate_data = data['candidate_data']
+
+    divisions = [
+        "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
+        "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
+        "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+    ]
+    results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
+    division_scores = {result["division"]: {
+        "pestel_scores": result["pestel_scores"],
+        "demographic_alignment_score": result["demographic_alignment_score"],
+        "community_engagement_score": result["community_engagement_score"],
+        "support_index": result["support_index"]
+    } for result in results}
+    final_si_score = sum([division_scores[division]["support_index"] for division in divisions]) / len(divisions)
+    # save_json({
+    #     "division_scores": division_scores,
+    #     "final_si_score": final_si_score
+    # }, 'output.json')
+
+    return jsonify({
+        "division_scores": division_scores,
+        "final_si_score": final_si_score
+    })
+
+
+@app.route('/ranil', methods=['GET'])
+def predict2():
+    # data = request.json
+    # print(data)
+
+    data ={  "candidate_data":{
+   "Full Name":"Ranil Wickremesinghe",
+   "DOB":"March 24, 1949",
+   "Gender":"Male",
+   "Nationality":"Sri Lankan",
+   "Languages Preferred":"Sinhala, English",
+   "Phone Number":"4 11 123 4567",
+   "Email Address":"ranil.w@example.com",
+   "Permanent Address":"123 Temple Trees, Colombo, Sri Lanka",
+   "Religion":"Buddhism",
+   "Caste/Community":"Govigama",
+   "Ethnicity":"Sinhalese",
+   "Education Level":"Bachelor's Degree",
+   "Previous Occupations":"Lawyer, Politician",
+   "Political Base":"United National Party (UNP)",
+   "Highest Degree Obtained":"Bachelor of Laws (LL.B)",
+   "Field of Study":"Law",
+   "Educational Institutions Attended":"Royal College, Colombo; University of Ceylon; Ceylon Law College",
+   "Certifications/Other Qualifications":"Attorney-at-Law",
+   "Current Occupation":"President of Sri Lanka",
+   "Years of Experience in Leadership":"Prime Minister of Sri Lanka, Member of Parliament, Leader of the Opposition",
+   "Political Party Affiliation":"Over 40 years",
+   "Previous Political Positions Held":"United National Party (UNP)",
+   "Major Political Achievements":"Prime Minister of Sri Lanka, Minister of Youth Affairs and Employment, Minister of Education",
+   "Political Ideology/Core Belief":"Economic reforms, peace negotiations with LTTE, involvement in international diplomacy",
+   "Political Movements Involvement":"Liberalism, Economic Reform, Pro-Western foreign policy",
+   "Key Areas of Focus":"Support for democracy and rule of law, anti-corruption",
+   "Primary Vision for the Country/Region":"Economic reform, education, healthcare, foreign relations",
+   "Short-term Goals":"Economic stability and growth, peace, and development",
+   "Long-term Goals":"Economic recovery, political stability, anti-corruption",
+   "Involvement in Social/Community Projects":"Sustainable development, strengthening democratic institutions",
+   "Awards and Recognitions":"Various education and health-related initiatives",
+   "Twitter":"Several national and international recognitions",
+   "Facebook":"@RanilWOfficial",
+   "Instagram":"fb.com/RanilWOfficial",
+   "Other Social Media Handles":"@RanilWickremesinghe"
+}
+    }
+
     candidate_data = data['candidate_data']
 
     divisions = [
