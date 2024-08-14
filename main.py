@@ -307,7 +307,7 @@ def predict():
 
     return jsonify({
         "division_scores": division_scores,
-        "final_si_score": final_si_score
+        "SI Score": final_si_score
     })
 
 @app.route('/anura', methods=['GET'])
@@ -384,7 +384,7 @@ def predict1():
 
     return jsonify({
         "division_scores": division_scores,
-        "final_si_score": final_si_score
+        "SI Score": final_si_score
     })
 
 
