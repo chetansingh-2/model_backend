@@ -184,7 +184,24 @@ def get_scores(candidate_data, division):
     1. PESTEL (Political, Economic, Social, Technological, Environmental, Legal)
     2. Demographic Alignment
     3. Community Engagement
+ division across the following aspects:
 
+    1. PESTEL (Political, Economic, Social, Technological, Environmental, Legal)
+    2. Demographic Alignment
+    3. Community Engagement
+
+    Provide the scores on a scale of 1 to 100. Ensure you only output the scores in the following format:
+
+    Political: <score>
+    Economic: <score>
+    Social: <score>
+    Technological: <score>
+    Environmental: <score>
+    Legal: <score>
+    Demographic Alignment: <score>
+    Community Engagement: <score>
+
+    Candidate Data: 
     Provide the scores on a scale of 1 to 100. Ensure you only output the scores in the following format:
 
     Political: <score>
@@ -288,9 +305,9 @@ def predict():
     divisions = [
         "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle",
         "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle",
-        "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
-        "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
-        "Trincomalee", "Vavuniya"
+        # "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
+        # "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+        # "Trincomalee", "Vavuniya"
     ]
     results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
     division_scores = {result["division"]: {
@@ -442,10 +459,10 @@ def predict2():
 
     divisions = [
         "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle",
-        "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle",
-        "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
-        "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
-        "Trincomalee", "Vavuniya"
+        # "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle",
+        # "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
+        # "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+        # "Trincomalee", "Vavuniya"
     ]
 
     results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
@@ -468,5 +485,5 @@ def predict2():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5600))
     app.run(host='0.0.0.0', port=port, debug=True)
