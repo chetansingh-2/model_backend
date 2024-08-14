@@ -455,7 +455,7 @@ def predict2():
         "community_engagement_score": result["community_engagement_score"],
         "SI Score": result["support_index"]
     } for result in results}
-    SI_SCORE = sum([division_scores[division]["support_index"] for division in divisions]) / len(divisions)
+    SI_SCORE = sum([division_scores[division]["SI Score"] for division in divisions]) / len(divisions)
     # save_json({
     #     "division_scores": division_scores,
     #     "final_si_score": final_si_score
