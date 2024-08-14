@@ -279,10 +279,18 @@ def predict():
     # print(data)
     candidate_data = data['candidate_data']
 
+    # divisions = [
+    #     "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
+    #     "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
+    #     "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+    # ]
+
     divisions = [
-        "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
-        "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
-        "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+        "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle",
+        "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle",
+        "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
+        "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+        "Trincomalee", "Vavuniya"
     ]
     results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
     division_scores = {result["division"]: {
@@ -348,10 +356,18 @@ def predict1():
 
     candidate_data = data['candidate_data']
 
+    # divisions = [
+    #     "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
+    #     "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
+    #     "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+    # ]
+
     divisions = [
-        "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
-        "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
-        "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+        "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle",
+        "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle",
+        "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
+        "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+        "Trincomalee", "Vavuniya"
     ]
     results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
     division_scores = {result["division"]: {
@@ -418,11 +434,20 @@ def predict2():
 
     candidate_data = data['candidate_data']
 
+    # divisions = [
+    #     "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
+    #     "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
+    #     "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+    # ]
+
     divisions = [
-        "Colombo Central", "Borella", "Colombo East", "Colombo West", "Dehiwala",
-        "Ratmalana", "Kolonnawa", "Kotte", "Kaduwela", "Avissawella",
-        "Homagama", "Maharagama", "Kesbewa", "Moratuwa"
+        "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle",
+        "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle",
+        "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala",
+        "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+        "Trincomalee", "Vavuniya"
     ]
+
     results = list(executor.map(lambda division: calculate_scores_for_division(candidate_data, division), divisions))
     division_scores = {result["division"]: {
         "pestel_scores": result["pestel_scores"],
