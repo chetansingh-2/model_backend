@@ -297,7 +297,7 @@ def predict():
         "pestel_scores": result["pestel_scores"],
         "demographic_alignment_score": result["demographic_alignment_score"],
         "community_engagement_score": result["community_engagement_score"],
-        "support_index": result["support_index"]
+        "SI Score": result["support_index"]
     } for result in results}
     final_si_score = sum([division_scores[division]["support_index"] for division in divisions]) / len(divisions)
     # save_json({
@@ -374,7 +374,7 @@ def predict1():
         "pestel_scores": result["pestel_scores"],
         "demographic_alignment_score": result["demographic_alignment_score"],
         "community_engagement_score": result["community_engagement_score"],
-        "support_index": result["support_index"]
+        "SI Score": result["support_index"]
     } for result in results}
     final_si_score = sum([division_scores[division]["support_index"] for division in divisions]) / len(divisions)
     # save_json({
@@ -453,7 +453,7 @@ def predict2():
         "pestel_scores": result["pestel_scores"],
         "demographic_alignment_score": result["demographic_alignment_score"],
         "community_engagement_score": result["community_engagement_score"],
-        "support_index": result["support_index"]
+        "SI Score": result["support_index"]
     } for result in results}
     SI_SCORE = sum([division_scores[division]["support_index"] for division in divisions]) / len(divisions)
     # save_json({
